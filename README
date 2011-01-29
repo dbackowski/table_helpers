@@ -1,13 +1,52 @@
 TableHelpers
 ============
 
-Introduction goes here.
-
+Rails table helpers plugin.
 
 Example
 =======
 
-Example goes here.
+<% table_list :class => 'list' do |t| %>
+  <%= t.th ['First column', 'Second column'] %>
+    <% t.tr do |tr| %>
+      <%= tr.td 'Example 1' %>
+      <%= tr.td 'Example 2' %>
+    <% end %>
+<% end %>
 
+will output:
+
+<table class="list">
+  <tr>
+    <th>First column</th>
+    <th>Second column</th>
+  </tr>
+  <tr>
+    <td>Example 1</td>
+    <td>Example 2</td>
+  </tr>
+</table>
+
+<% table_data :label_size => 150 do |t| %>
+  <% t.row 'Label name:', 'Data' %>
+  <% t.section 'Next section:' %>
+  <% t.row 'Label name 2:', 'Data 2' %>
+<% end %>
+
+will output:
+
+<table class="info">
+  <tr>
+    <td class="label" width="150">Label name:</td>
+    <td>Data</td>
+  </tr>
+  <tr>
+    <td colspan="2"><div class="section">Next section:</div></td>
+  </tr>
+  <tr>
+    <td class="label">Label name 2 :</td>
+    <td class="label">Data 2:</td>
+  </tr>
+</table>
 
 Copyright (c) 2011 Damian Baćkowski, released under the MIT license
