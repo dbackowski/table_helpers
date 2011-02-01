@@ -7,7 +7,7 @@ Example
 =======
 
 <% table_list :class => 'list' do |t| %>
-  <%= t.th ['First column', 'Second column'] %>
+  <%= t.headers ['First column', 'Second column'] %>
     <% t.tr do |tr| %>
       <%= tr.td 'Example 1' %>
       <%= tr.td 'Example 2' %>

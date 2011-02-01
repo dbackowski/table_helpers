@@ -12,7 +12,7 @@ class TableHelpersTest < ActionView::TestCase
   test "table_list_helper_with_headers" do
     result = capture do
       table_list(:class => 'list') do |t|
-        t.th(['Column 1', 'Column 2']) +
+        t.headers(['Column 1', 'Column 2']) +
           t.tr do |tr|
           tr.td('Example 1') +
             tr.td('Example 2')

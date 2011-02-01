@@ -59,13 +59,13 @@ module TableListHelper
     concat(result)
   end
 
-  def sortable_th(columns=[], widths={})
+  def sortable_headers(columns=[], widths={})
     content_tag :tr do
       get_sortable_table_headers(columns, widths)
     end
   end
   
-  def th(columns=[], widths={})
+  def headers(columns=[], widths={})
     content_tag :tr do
       get_table_headers(columns, widths)
     end
