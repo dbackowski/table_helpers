@@ -2,12 +2,12 @@ require 'test_helper'
 require 'action_view'
 require 'action_controller'
 require 'action_view/test_case'
-require File.dirname(__FILE__) + '/../lib/app/helpers/table_data_helper.rb'
-require File.dirname(__FILE__) + '/../lib/app/helpers/table_list_helper.rb'
+require File.dirname(__FILE__) + '/../lib/table_data.rb'
+require File.dirname(__FILE__) + '/../lib/table_list.rb'
+require File.dirname(__FILE__) + '/../lib/table_helpers.rb'
 
 class TableHelpersTest < ActionView::TestCase
-  include TableDataHelper
-  include TableListHelper
+  include TableHelpers
 
   test "table_list_helper_with_headers" do
     result = capture do
