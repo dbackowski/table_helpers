@@ -28,9 +28,9 @@ will output:
 </table>
 
 <% table_data :label_size => 150 do |t| %>
-  <% t.row 'Label name:', 'Data' %>
-  <% t.section 'Next section:' %>
-  <% t.row 'Label name 2:', 'Data 2' %>
+  <%= t.row 'Label name:', 'Data' %>
+  <%= t.section 'Next section:' %>
+  <%= t.row 'Label name 2:', 'Data 2' %>
 <% end %>
 
 will output:
