@@ -15,7 +15,7 @@ class TableData < ActionView::Base
         end
       else
         result = content_tag :tr do
-          content_tag(:td, content_tag(:span, label, :class => "label") << data, :colspan => 2, :width => @label_size)
+          content_tag(:td, content_tag(:span, label, :class => "label", :style => "display: block; float: left; width: #{@label_size}px;") << data, :colspan => 2, :width => @label_size)
         end
       end
       
@@ -28,7 +28,7 @@ class TableData < ActionView::Base
         end
       else
         result = content_tag :tr do
-          content_tag(:td, content_tag(:span, label, :class => "label") << data, :colspan => 2, :width => @label_size)
+          content_tag(:td, content_tag(:span, label, :class => "label", :style => "display: block; float: left; width: #{@label_size}px;") << data, :colspan => 2, :width => @label_size)
         end
       end
     end
