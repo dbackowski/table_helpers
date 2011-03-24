@@ -22,6 +22,12 @@ class TableList
   def tr(&block)
     raise "need a block" unless block_given?
 
-    @instance.content_tag(:tr, block.call(self))
+    result = @instance.capture do
+      @instance.content_tag :tr do
+        block.call(self) 
+      end
+    end 
+
+    @instance.concat(result)
   end
 end

@@ -13,10 +13,18 @@ class TableHelpersTest < ActionView::TestCase
     result = capture do
       table_list(:class => 'list') do |t|
         t.headers(['Column 1', 'Column 2']) +
-          t.tr do |tr|
-          tr.td('Example 1') +
-            tr.td('Example 2')
-        end
+          capture do 
+            t.tr do |tr|
+              tr.td('Example 1') +
+              tr.td('Example 2')
+            end 
+          end +
+          capture do 
+            t.tr do |tr| 
+              tr.td('Example 3') +
+              tr.td('Example 4')
+            end
+          end
       end
     end
 
@@ -29,6 +37,10 @@ class TableHelpersTest < ActionView::TestCase
       <tr>
         <td>Example 1</td>
         <td>Example 2</td>
+      </tr>
+      <tr>
+        <td>Example 3</td>
+        <td>Example 4</td>
       </tr>
     </table>
 EOF
