@@ -10,21 +10,15 @@ class TableHelpersTest < ActionView::TestCase
   include TableHelpers
 
   test "table_list_helper_with_headers" do
-    result = capture do
-      table_list(:class => 'list') do |t|
-        t.headers(['Column 1', 'Column 2']) +
-          capture do 
-            t.tr do |tr|
-              tr.td('Example 1') +
-              tr.td('Example 2')
-            end 
-          end +
-          capture do 
-            t.tr do |tr| 
-              tr.td('Example 3') +
-              tr.td('Example 4')
-            end
-          end
+    result = table_list(:class => 'list') do |t|
+      t.headers(['Column 1', 'Column 2']) +
+      t.tr do |tr|
+        tr.td('Example 1') +
+        tr.td('Example 2')
+      end +
+      t.tr do |tr| 
+        tr.td('Example 3') +
+        tr.td('Example 4')
       end
     end
 
@@ -49,12 +43,10 @@ EOF
   end
 
   test "table_data_helper" do
-    result = capture do
-      table_data(:label_size => 200) do |t|
-        t.row('Firm:', 'Test') +
-          t.section +
-          t.row('Client Name:', 'Bill Gates')
-      end
+    result = table_data(:label_size => 200) do |t|
+      t.row('Firm:', 'Test') +
+        t.section +
+        t.row('Client Name:', 'Bill Gates')
     end
 
     expected = <<EOF

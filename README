@@ -1,20 +1,20 @@
 TableHelpers
 ============
 
-Rails table helpers plugin.
+Rails 3.0.x table helpers plugin.
 
-Example
+Examples
 =======
 
-<% table_list :class => 'list' do |t| %>
+<%= table_list :class => 'list' do |t| %>
   <%= t.headers ['First column', 'Second column'] %>
-    <% t.tr do |tr| %>
+    <%= t.tr do |tr| %>
       <%= tr.td 'Example 1' %>
       <%= tr.td 'Example 2' %>
     <% end %>
 <% end %>
 
-will output:
+HTML output:
 
 <table class="list">
   <tr>
@@ -27,13 +27,13 @@ will output:
   </tr>
 </table>
 
-<% table_data :label_size => 150 do |t| %>
+<%= table_data :label_size => 150 do |t| %>
   <%= t.row 'Label name:', 'Data' %>
   <%= t.section 'Next section:' %>
   <%= t.row 'Label name 2:', 'Data 2' %>
 <% end %>
 
-will output:
+HTML output:
 
 <table class="info">
   <tr>

@@ -27,7 +27,5 @@ class TableList
         block.call(self) 
       end
     end 
-
-    @instance.concat(result)
   end
 end

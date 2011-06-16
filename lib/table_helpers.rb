@@ -1,3 +1,6 @@
+require 'table_list'
+require 'table_data'
+
 module TableHelpers
   def get_table_headers(columns=[], widths={})
     headers = []
@@ -13,7 +16,7 @@ module TableHelpers
       i += 1
     end
 
-    return headers
+    headers.to_s.html_safe
   end
 
   def get_sortable_table_headers(columns=[], widths={})
@@ -44,7 +47,7 @@ module TableHelpers
       j += 1
     end
 
-    return headers
+    headers.to_s.html_safe
   end
 
   def table_list(html_options = {}, &block)
@@ -57,8 +60,6 @@ module TableHelpers
         block.call(t)
       end
     end
-
-    concat(result)
   end
 
   def table_data(options = {}, &block)
@@ -69,7 +70,7 @@ module TableHelpers
     result = content_tag(:table, :class => 'info') do
       block.call(t)
     end
-
-    concat(result)
   end
 end
+
+ActionView::Base.send :include, TableHelpers
