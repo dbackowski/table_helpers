@@ -14,11 +14,11 @@ class TableHelpersTest < ActionView::TestCase
       t.headers(['Column 1', 'Column 2']) +
       t.tr do |tr|
         tr.td('Example 1') +
-        tr.td('Example 2')
+        tr.td('Example 2', :class => 'options')
       end +
       t.tr do |tr| 
         tr.td('Example 3') +
-        tr.td('Example 4')
+        tr.td('Example 4', :class => 'options')
       end
     end
 
@@ -30,11 +30,11 @@ class TableHelpersTest < ActionView::TestCase
       </tr>
       <tr>
         <td>Example 1</td>
-        <td>Example 2</td>
+        <td class="options">Example 2</td>
       </tr>
       <tr>
         <td>Example 3</td>
-        <td>Example 4</td>
+        <td class="options">Example 4</td>
       </tr>
     </table>
 EOF

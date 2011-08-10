@@ -15,8 +15,8 @@ class TableList
     end
   end
   
-  def td(data)
-    @instance.content_tag :td, data
+  def td(data, options={})
+    @instance.content_tag :td, data, :class => options[:class]# unless options[:class].blank?
   end
 
   def tr(&block)

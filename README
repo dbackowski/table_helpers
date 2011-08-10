@@ -10,7 +10,7 @@ Examples
   <%= t.headers ['First column', 'Second column'] %>
     <%= t.tr do |tr| %>
       <%= tr.td 'Example 1' %>
-      <%= tr.td 'Example 2' %>
+      <%= tr.td 'Example 2', :class => 'options' %>
     <% end %>
 <% end %>
 
@@ -23,7 +23,7 @@ HTML output:
   </tr>
   <tr>
     <td>Example 1</td>
-    <td>Example 2</td>
+    <td class="options">Example 2</td>
   </tr>
 </table>
 
