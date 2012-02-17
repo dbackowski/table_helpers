@@ -7,6 +7,9 @@ class TableData < ActionView::Base
   end
   
   def row(label, data, colspan=false)
+    data = data.to_s.html_safe
+    label = label.to_s.html_safe
+
     unless @set_label_size && @label_size
       unless colspan
         result = content_tag :tr do
@@ -33,11 +36,13 @@ class TableData < ActionView::Base
       end
     end
     
-    return result
+    result
   end
   
   def section(name=nil)
-    unless name.nil?
+    name = name.to_s.html_safe
+    
+    if name.present?
       content_tag :tr do
         content_tag :td, content_tag(:div, name, :class => "section"), :colspan => 2
       end
