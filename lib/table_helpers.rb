@@ -11,12 +11,12 @@ module TableHelpers
       if widths.has_key?(i)
         headers.push(content_tag(:th, column_name, :width => widths[i]))
       else
-        headers.push(content_tag(:th, column_name))
+        headers.push(content_tag(:th, column_name.html_safe).html_safe)
       end
       i += 1
     end
 
-    headers.to_s.html_safe
+    headers.join.html_safe
   end
 
   def get_sortable_table_headers(columns=[], widths={})
@@ -47,7 +47,7 @@ module TableHelpers
       j += 1
     end
 
-    headers.to_s.html_safe
+    headers.join.html_safe
   end
 
   def table_list(html_options = {}, &block)

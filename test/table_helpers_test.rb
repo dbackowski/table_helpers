@@ -22,22 +22,11 @@ class TableHelpersTest < ActionView::TestCase
       end
     end
 
-    expected = <<EOF
-    <table class="list">
-      <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-      </tr>
-      <tr>
-        <td>Example 1</td>
-        <td class="options">Example 2</td>
-      </tr>
-      <tr>
-        <td>Example 3</td>
-        <td class="options">Example 4</td>
-      </tr>
-    </table>
-EOF
+    expected = '<table class="list">'
+    expected << '<tr><th>Column 1</th><th>Column 2</th></tr>'
+    expected << '<tr><td>Example 1</td><td class="options">Example 2</td></tr>'
+    expected << '<tr><td>Example 3</td><td class="options">Example 4</td></tr>'
+    expected << '</table>'
 
     assert_dom_equal expected, result
   end
@@ -49,21 +38,11 @@ EOF
         t.row('Client Name:', 'Bill Gates')
     end
 
-    expected = <<EOF
-    <table class="info">
-      <tr>
-        <td class="label" width="200">Firm:</td>
-        <td>Test</td>
-      </tr>
-      <tr>
-        <td colspan="2"><hr class="section" /></td>
-      </tr>
-      <tr>
-        <td class="label">Client Name:</td>
-        <td>Bill Gates</td>
-      </tr>
-    </table>
-EOF
+    expected = '<table class="info">'
+    expected << '<tr><td class="label" width="200">Firm:</td><td>Test</td></tr>'
+    expected << '<tr><td colspan="2"><hr class="section" /></td></tr>'
+    expected << '<tr><td class="label">Client Name:</td><td>Bill Gates</td></tr>'
+    expected << '</table>'
 
     assert_dom_equal expected, result
   end

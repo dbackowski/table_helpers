@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name    = 'table_helpers'
-  gem.version = '0.5'
+  gem.version = '0.6'
   gem.date    = Time.now.strftime('%Y-%m-%d')
   
   gem.summary = "Table helpers for Rails 3.0.x"

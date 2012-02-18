@@ -5,13 +5,13 @@ class TableList
   
   def sortable_headers(columns=[], widths={})
     @instance.content_tag :tr do
-      @instance.get_sortable_table_headers(columns, widths)
+      @instance.concat(@instance.get_sortable_table_headers(columns, widths))  
     end
   end
   
   def headers(columns=[], widths={})
     @instance.content_tag :tr do
-      @instance.get_table_headers(columns, widths)
+      @instance.concat(@instance.get_table_headers(columns, widths))
     end
   end
   
