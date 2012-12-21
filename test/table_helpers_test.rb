@@ -16,7 +16,7 @@ class TableHelpersTest < ActionView::TestCase
         tr.td('Example 1') +
         tr.td('Example 2', :class => 'options')
       end +
-      t.tr do |tr| 
+      t.tr do |tr|
         tr.td('Example 3') +
         tr.td('Example 4', :class => 'options')
       end
