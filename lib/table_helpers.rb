@@ -29,18 +29,22 @@ module TableHelpers
       column_name = columns[j][0]
       sort_columns = columns[j][1..columns[j].length-1]
 
-      if params[:order_by] == sort_columns.join(', ')
-        link = link_to(column_name, p.merge('order_by' => "#{sort_columns.join(' DESC, ') + ' DESC'}"), :class=> "sortdown")
-      elsif params[:order_by] == sort_columns.join(' DESC, ') + ' DESC'
-        link = link_to(column_name, p.merge('order_by' => sort_columns.join(', ')), :class=> "sortup")
-      else
-        link = link_to(column_name, p.merge('order_by' => sort_columns.join(', ')), :class=> "sort-none")
-      end
+      if column_name.present?
+        if params[:order_by] == sort_columns.join(', ')
+          link = link_to(column_name, p.merge('order_by' => "#{sort_columns.join(' DESC, ') + ' DESC'}"), :class=> "sortdown")
+        elsif params[:order_by] == sort_columns.join(' DESC, ') + ' DESC'
+          link = link_to(column_name, p.merge('order_by' => sort_columns.join(', ')), :class=> "sortup")
+        else
+          link = link_to(column_name, p.merge('order_by' => sort_columns.join(', ')), :class=> "sort-none")
+        end
 
-      if widths.has_key?(i)
-        headers.push("<th width=\"%s\">%s</th>" % [widths[i],link])
+        if widths.has_key?(i)
+          headers.push("<th width=\"%s\">%s</th>" % [widths[i],link])
+        else
+          headers.push("<th>%s</th>" % [link])
+        end
       else
-        headers.push("<th>%s</th>" % [link])
+        headers.push('<th></th>')
       end
 
       i += 1
