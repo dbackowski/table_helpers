@@ -29,7 +29,7 @@ module TableHelpers
       column_name = columns[j][0]
       sort_columns = columns[j][1..columns[j].length-1]
 
-      if column_name.present?
+      if sort_columns.present?
         if params[:order_by] == sort_columns.join(', ')
           link = link_to(column_name, p.merge('order_by' => "#{sort_columns.join(' DESC, ') + ' DESC'}"), :class=> "sortdown")
         elsif params[:order_by] == sort_columns.join(' DESC, ') + ' DESC'
@@ -43,6 +43,8 @@ module TableHelpers
         else
           headers.push("<th>%s</th>" % [link])
         end
+      elsif column_name.present?
+        headers.push('<th>%s</th>' % column_name)
       else
         headers.push('<th></th>')
       end
