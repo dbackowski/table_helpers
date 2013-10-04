@@ -2,8 +2,9 @@
 
 Gem::Specification.new do |gem|
   gem.name    = 'table_helpers'
-  gem.version = '0.9'
+  gem.version = '1.0'
   gem.date    = Time.now.strftime('%Y-%m-%d')
+  gem.license = 'MIT'
 
   gem.summary = "Table helpers for Rails 3.2.x"
   gem.description = "The table_helpers library provides a simple helpers to create table lists with headers and presenting data in tables."
